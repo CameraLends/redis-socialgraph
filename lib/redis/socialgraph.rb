@@ -18,6 +18,13 @@ class Redis
       REDIS.smembers(key(user_id)).map(&:to_i)
     end
 
+    def self.friends_of_friends_ids(user_id)
+      keys = ([user_id] + friend_ids(user_id)).map do |id|
+        key(id)
+       end
+      REDIS.sunion(keys).map(&:to_i) - [user_id]
+    end
+
     # Returns an Array representing the mutual friends between two users
     def self.mutual_friends(a, b)
       REDIS.sinter(key(a), key(b)).map(&:to_i)

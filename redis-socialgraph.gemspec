@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "redis-socialgraph"
-  spec.version       = "0.0.1"
+  spec.version       = "0.0.2"
   spec.authors       = ["Adam Derewecki", "Kunal Shah"]
   spec.email         = ["adam@cameralends.com", "me@kunalashah.com"]
   spec.description   = %q{Implements storage for a basic social graph via Redis}
