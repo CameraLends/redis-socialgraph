@@ -19,9 +19,7 @@ class Redis
     end
 
     def self.friends_of_friends_ids(user_id)
-      keys = ([user_id] + friend_ids(user_id)).map do |id|
-        key(id)
-       end
+      keys = ([user_id] + friend_ids(user_id)).map { |id| key(id) }
       REDIS.sunion(keys).map(&:to_i) - [user_id]
     end
 
