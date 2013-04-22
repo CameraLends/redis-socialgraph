@@ -27,7 +27,7 @@ Or install it yourself as:
     friend_ids = Redis::Socialgraph.friend_ids(current_user.fbuid)
     > [150100454, 1588785989, 5517425, 15500300, ... ]
 
-    friend_of_friend_fbuids = Redis::Socialgraph.friend_ids(current_user.fbuid)
+    friend_of_friend_fbuids = Redis::Socialgraph.friends_of_friends_ids(current_user.fbuid)
     > [1036350018, 15508452, 1016054663, ... ]
 
     # two users don't know each other, but could have friends in common
